@@ -1,15 +1,13 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Class to define the structure of Stripe fees
  */
 
 /**
  * Description of StripeCountryFeeStructure
  *
- * @author jonmilsom
+ * @author Jon Milsom
  */
 class StripeCountryFeeStructure {
 	
