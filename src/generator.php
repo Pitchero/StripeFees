@@ -28,7 +28,11 @@ foreach($countries as $country) {
 	unset($country->default_fee_structure);
 }
 
-$json_countries = json_encode($countries);
+$json_countries = json_encode(array(
+	'details' => 'https://stripefees.com/',
+	'updated' => date('c'),
+	'countries' => $countries,
+));
 
 // Output to file
 file_put_contents('../public/fees.json', $json_countries);
