@@ -1,11 +1,7 @@
 <?php
 
-/*
- * Class to define the structure of each Stripe country
- */
-
 /**
- * Description of StripeCountry
+ * Class to define the structure of each Stripe country
  *
  * @author Jon Milsom
  */

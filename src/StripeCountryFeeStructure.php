@@ -1,11 +1,7 @@
 <?php
 
-/*
- * Class to define the structure of Stripe fees
- */
-
 /**
- * Description of StripeCountryFeeStructure
+ * Class to define the structure of Stripe fees
  *
  * @author Jon Milsom
  */
