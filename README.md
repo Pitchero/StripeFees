@@ -1,4 +1,4 @@
-stripefees.com
+StripeFees
 ======
 ## Usage
 Access the compiled version at https://stripefees.com/fees.json
