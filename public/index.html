@@ -40,6 +40,9 @@
 						<li>You want to keep track of which countries Stripe is available in and whether the service is in beta or not</li>
 						<li>You run a platform using Stripe Connect and your customers use multiple currencies</li>
 					</ul>
+					<h3>Current data</h3>
+					<p>Table generated directly from <a href="https://stripefees.com/fees.json">fees.json</a></p>
+					<table id="data-table" class="pure-table"></table>
 				</div>
 				<footer>
 					<div class="pure-u-1"><p>Stripe is (c) Stripe etc</p></div>
@@ -47,6 +50,52 @@
 			</div>
 			<a href="https://github.com/Pitchero/StripeFees"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
 		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>	
+		var fields = [
+			"code",
+			"name",
+			"url",
+			"is_beta",
+			"currency",
+			"percentage",
+			"fixed_fee",
+			"chargeback",
+			"additional_tax",
+			"fee_structures"
+		];
+			
+		function drawTable(data, id) {
+			// draw header
+			var thead = $("<thead/>");
+			$(id).append(thead);
+			
+			// add field names to the thead tag
+			for (var i = 0; i < fields.length; i++) {
+				thead.append($("<th>" + fields[i] + "</th>"));
+			}
+			
+			// draw each data row
+			for (var i = 0; i < data.length; i++) {
+				var row = $("<tr />");
+				$(id).append(row);
+				for (var j = 0; j < fields.length; j++) {
+					if(fields[j] === "fee_structures") {
+						row.append($("<td>" + data[i]['' + fields[j] + ''].length + "</td>"));
+					}
+					else {
+						row.append($("<td>" + data[i]['' + fields[j] + ''] + "</td>"));
+					}
+				}
+			}
+		}
+
+		jQuery(document).ready(function($){
+			$.getJSON( "fees.json", function( json ) {
+				drawTable(json.countries, '#data-table');
+			});
+		});
+		</script>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 	</body>

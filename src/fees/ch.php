@@ -2,7 +2,7 @@
 $country = new StripeCountry();
 $country->name = 'Switzerland';
 $country->url = 'https://stripe.com/ch/pricing';
-$country->code = 'ch';
+$country->code = 'CH';
 $country->currency = 'CHF';
 $country->is_beta = true;
 
